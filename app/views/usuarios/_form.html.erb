@@ -38,8 +38,7 @@
 
   <div class="field">
     <%= form.label :sexo %>
-    <%= form.radio_button :sexo, 'F', :checked => true %>Femenino
-    <%= form.radio_button :sexo, 'M' %>Masculino
+    <%= form.text_field :sexo %>
   </div>
 
   <div class="field">
@@ -59,15 +58,15 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.text_field :password %>
   </div>
 
   <div class="field">
     <%= form.label :estado_id %>
-    <%= form.select :estado_id, @estados.collect{ |e| [e.nombre,e.id] }, { include_blank: "Selecciona uno " } %>
+    <%= form.text_field :estado_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Guardar" %>
+    <%= form.submit %>
   </div>
 <% end %>
