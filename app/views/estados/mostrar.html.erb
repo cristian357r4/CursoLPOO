@@ -1,0 +1,22 @@
+<h1>Connsultar Estado</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <td><%= @estado.nombre %></td>
+  </tr>
+
+  <tr>
+    <th>Descripcion</th>
+    <td><%= @estado.descripcion%></td>
+  </tr>
+
+  <tr>
+    <th>Pais</th>
+    <td><%= @estado.pais_id %></td>
+  </tr>
+
+
+</table>
+
+<%= link_to 'Regresar', estados_inicio_path %>
