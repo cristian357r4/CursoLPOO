@@ -23,6 +23,6 @@ Rails.application.routes.draw do
 
 
   #busqueda
-  match '/buscar_usuario' => 'usuario#buscar', via: :post, :as => :buscar_usuario
+  match '/buscar_usuario' => 'usuarios#index', via: :post, :as => :buscar_usuarios
 
 end

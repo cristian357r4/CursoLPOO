@@ -1,6 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Usuarios</h1>
+<%= form_tag(buscar_usuarios_path, method: :post) do %>
+  <table>
+    <tr>
+      <th>RFC: </th>
+      <td><%= text_field_tag :rfc, nil, placeholder: "RFC"%></td>
+    </tr>
+    <tr>
+      <th>CURP: </th>
+      <td><%= text_field_tag :curp, nil, placeholder: "CURP"%></td>
+    </tr>
+    <tr>
+      <th>Nombre: </th>
+      <td><%= text_field_tag :nombre, nil, placeholder: "Nombre"%></td>
+    </tr>
+    <tr>
+      <th>Paterno: </th>
+      <td><%= text_field_tag :paterno, nil, placeholder: "Paterno"%></td>
+    </tr>
+    <tr>
+      <th>Materno: </th>
+      <td><%= text_field_tag :materno, nil, placeholder: "Materno"%></td>
+    </tr>
+  </table>
+  <%= submit_tag "Buscar" %>
+  <br>
+<% end %>
 
 <table>
   <thead>
@@ -41,6 +67,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @usuarios, previous_label: 'Anterior', netx_label: 'Siguiente'%>
 
 <br>
 

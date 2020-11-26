@@ -1,10 +1,27 @@
 class UsuariosController < ApplicationController
+
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    values = {}
+    if params[:rfc].present?
+      values[:rfc] = params[:rfc]
+    end
+    if params[:curp].present?
+      values[:curp] = params[:curp]
+    end
+    if params[:nombre].present?
+      values[:nombre] = params[:nombre]
+    end
+    if params[:paterno].present?
+      values[:paterno] = params[:paterno]
+    end
+    if params[:materno].present?
+      values[:materno] = params[:materno]
+    end
+    @usuarios = Usuario.where(values).paginate(:page => params[:page], :per_page => 2).order('paterno')
   end
 
   # GET /usuarios/1
@@ -71,16 +88,14 @@ class UsuariosController < ApplicationController
     end
   end
 
-  def buscar
-  end
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_usuario
-      @usuario = Usuario.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_usuario
+    @usuario = Usuario.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def usuario_params
-      params.require(:usuario).permit(:rfc, :curp, :nombre, :paterno, :materno, :sexo, :telefono, :correo, :login, :password, :estado_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def usuario_params
+    params.require(:usuario).permit(:rfc, :curp, :nombre, :paterno, :materno, :sexo, :telefono, :correo, :login, :password, :estado_id)
+  end
 end

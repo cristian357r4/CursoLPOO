@@ -12,6 +12,10 @@ gem 'jquery-rails'
 
 gem 'jquery-validation-rails'
 
+gem 'will_paginate'
+
+#gem 'will_paginate-bootstrap'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
