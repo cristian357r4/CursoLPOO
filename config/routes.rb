@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # get 'estados/inicio'
   resources :usuarios
+  match '/validar_rfc' => 'usuarios#validar_rfc', via: :get, :as => :validar_rfc_usuarios
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   match '/estados' => 'estados#inicio', via: :get, :as => :estados_inicio
   match '/estado/:id/mostrar' => 'estados#mostrar', via: :get, :as => :mostrar_estado
@@ -19,5 +21,8 @@ Rails.application.routes.draw do
   match 'pais/:id/actualizar' => 'paises#actualizar', via: :patch, :as => :actualizar_pais
   match 'pais/:id/eliminar' => 'paises#eliminar', via: :delete, :as => :eliminar_pais
 
+
+  #busqueda
+  match '/buscar_usuario' => 'usuario#buscar', via: :post, :as => :buscar_usuario
 
 end

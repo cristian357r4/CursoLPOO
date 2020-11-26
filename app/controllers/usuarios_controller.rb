@@ -10,15 +10,18 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    @estados = Estado.all
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @estados = Estado.all
   end
 
   # GET /usuarios/1/edit
   def edit
+    @estados = Estado.all
   end
 
   # POST /usuarios
@@ -61,6 +64,15 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def validar_rfc
+    @usuario = Usuario.where("rfc = ?", params[:usuario][:rfc]).first
+    respond_to do |format|
+      format.js{ render json: { validar: @usuario.nil? ? true : false }, content_type: 'text/json' }
+    end
+  end
+
+  def buscar
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario

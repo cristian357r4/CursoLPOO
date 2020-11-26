@@ -9,10 +9,11 @@
   </tr>
   <tr>
     <th><%= f.label :pais_id %></th>
-    <td><%= f.text_field :pais_id %></td>
+    <td><%= f.select :pais_id, @paises.collect{|e| [e.nombre,e.id]}, {include_blank: "Selecciona uno."} %></td>
   </tr>
   <tr>
     <th></th>
     <td><%= f.submit "Guardar" %></td>
   </tr>
 </table>
+<%= link_to 'Regresar', estados_inicio_path %>

@@ -5,13 +5,16 @@ class EstadosController < ApplicationController
 
   def mostrar
     @estado = Estado.find(params[:id])#sselect * from estados where estaaado idd = 1
+    @paises = Pais.all
   end
 
   def nuevo
     @estado = Estado.new
+    @paises = Pais.all
   end
 
   def crear
+    @paises = Pais.all
     @estado = Estado.new(nombre: params[:estado][:nombre], descripcion: params[:estado][:descripcion],pais_id: params[:estado][:pais_id])
     respond_to do |format|
       if @estado.save
@@ -22,6 +25,7 @@ class EstadosController < ApplicationController
 
   def editar
     @estado = Estado.find(params[:id])
+    @paises = Pais.all
   end
 
   def actualizar
