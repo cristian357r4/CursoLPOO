@@ -13,15 +13,15 @@ default: &default
   adapter: mysql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: 2968239ms
   host: localhost
 
 development:
   adapter: mysql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: ulpoo
-  password: ULPOOMy5@l
-  host: localhost
+  username: root
+  password: 2968239ms
+  host: db
   database: dblpoo
 
 # Warning: The database defined as "test" will be erased and
