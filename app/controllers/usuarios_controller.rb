@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
 
+  before_action :require_user
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
@@ -83,8 +84,17 @@ class UsuariosController < ApplicationController
 
   def validar_rfc
     @usuario = Usuario.where("rfc = ?", params[:usuario][:rfc]).first
+    if @usuario.nil?
+      validar_usuario = true
+    else
+      if(@usuario.id).to_i == (params[:usuario_id]).to_i
+        validar_usuario = true
+      else
+        validar_usuario = false
+      end
+    end
     respond_to do |format|
-      format.js{ render json: { validar: @usuario.nil? ? true : false }, content_type: 'text/json' }
+      format.js{ render json: { validar: validar_usuario }, content_type: 'text/json' }
     end
   end
 

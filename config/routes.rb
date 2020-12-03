@@ -25,4 +25,12 @@ Rails.application.routes.draw do
   #busqueda
   match '/buscar_usuario' => 'usuarios#index', via: :post, :as => :buscar_usuarios
 
+  match '/login' => 'sesiones#login', via: :get, :as => :login
+  match '/validar_usuario' => 'sesiones#validar_usuario', via: :post, :as => :validar_usuario
+  match '/cerrar_sesion' => 'sesiones#cerrar_sesion', via: :delete, :as => :cerrar_sesion
+
+  root :to => 'sesiones#login'
+
+
+
 end

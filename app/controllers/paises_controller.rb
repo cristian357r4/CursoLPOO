@@ -1,4 +1,5 @@
 class PaisesController < ApplicationController
+  before_action :require_user
   def inicio
     @paises = Pais.all
   end

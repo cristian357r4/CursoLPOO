@@ -10,11 +10,10 @@
   </head>
 
   <body>
-    <div class="topnav">
-      <a class="active" href="<%= paises_inicio_path %>">Paises</a>
-      <a href="<%= estados_inicio_path %>">Estados</a>
-      <a href="<%= usuarios_path %>">Usuarios</a>
-    </div>
+    <head>
+      <%= render 'layouts/navbar' unless @disable_nav %>
+      <%# render 'layouts/navbar' unless current_page?('/login')%>
+    </head>
     <%= yield %>
   </body>
   <div class="blockquote-footer">

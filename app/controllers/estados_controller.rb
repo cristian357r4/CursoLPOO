@@ -1,4 +1,5 @@
 class EstadosController < ApplicationController
+  before_action :require_user
   def inicio
     @estados = Estado.all
   end

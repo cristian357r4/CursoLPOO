@@ -1,6 +1,13 @@
 <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a href="<%= paises_inicio_path %>">Paises</a></li>
+  <li><a href="<%= estados_inicio_path %>">Estados</a></li>
+  <li><a href="<%= usuarios_path %>">Usuarios</a></li>
+  <li class="dropdown">
+    <a href="" class="dropbtn">Usuario Actual</a>
+    <div class="dropdown-content">
+      <%= link_to 'Cerrar Sesion', cerrar_sesion_path, method: :delete %>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </li>
 </ul>

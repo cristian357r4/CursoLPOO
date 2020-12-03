@@ -1,0 +1,16 @@
+<p id="alert"><%= alert %></p>
+<h1>Login Usuario</h1>
+<%= form_tag(validar_usuario_path) do %>
+  <table>
+    <tr>
+      <th>Login:</th>
+      <td><%= text_field_tag 'login', nil, placeholder: 'user' %></td>
+    </tr>
+    <tr>
+      <th>Password</th>
+      <td><%= password_field_tag 'password', nil, placeholder: 'password'  %></td>
+    </tr>
+    <tr><br></tr>
+  </table>
+  <%= submit_tag 'Ingresar' %>
+<% end %>
