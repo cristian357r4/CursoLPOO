@@ -5,6 +5,7 @@ services:
     restart: always
     volumes:
       - C:\\Users\\xazak\\Documents\\LPOO\\Docker-volumes\\mysql57:/var/lib/mysql
+      #- /mysql57:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 2968239ms
       MYSQL_DATABASE: dblpoo
