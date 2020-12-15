@@ -60,7 +60,7 @@
         <td><%= usuario.login %></td>
         <td><%= usuario.password %></td>
         <td><%= usuario.estado.nombre %></td>
-        <td><%= link_to 'Show', usuario %></td>
+        <td><i class="fas fa-search"></i><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
