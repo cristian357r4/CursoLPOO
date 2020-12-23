@@ -158,6 +158,7 @@ GEM
 
 PLATFORMS
   java
+  universal-java-1.8
 
 DEPENDENCIES
   activerecord-jdbcmysql-adapter
@@ -178,4 +179,4 @@ RUBY VERSION
    ruby 2.5.7p0 (jruby 9.2.13.0)
 
 BUNDLED WITH
-   2.1.4
+   2.2.0
